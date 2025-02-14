@@ -12,7 +12,7 @@ def authlogin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('button')
+            return redirect('customer_dashboard')
         else:
             messages.error(request, 'Username or Password Invalid!')
 
@@ -54,21 +54,21 @@ def customer_dashboard(request):
 def forgetpassword(request):
     return render(request, 'forget.html')
 
-# Customer Login View
+# customer_login
 def customer_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
-        if user is not None and user.usertype != 'admin':  # Ensure it's not an admin user
+        if user is not None:  # Removed `usertype` check
             login(request, user)
             return redirect('customer_dashboard')
         else:
             messages.error(request, 'Invalid Customer Credentials!')
 
     return render(request, 'customer_login.html')
-
+    return render(request, 'customer_login.html')
 # Admin Registration View
 def admin_register(request):
     if request.method == 'POST':
