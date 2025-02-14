@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Utility - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .customer-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .customer-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .admin-btn {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .admin-btn:hover {
+            background-color: #a71d2a;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gas Utility</h1>
+        <form action="{% url 'customer_login' %}" method="GET">
+            <button type="submit" class="customer-btn">Customer Login</button>
+        </form>
+        <form action="{% url 'admin_login' %}" method="GET">
+            <button type="submit" class="admin-btn">Admin Login</button>
+        </form>
+        <p class="contact">Contact: thakareharshal73@gmail.com</p>
+    </div>
+</body>
+
+</html>
